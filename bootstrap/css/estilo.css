@@ -1,0 +1,112 @@
+
+body{
+	margin:0;	
+	font-family:"trebuchet ms", arial;
+	background-image:url(img/background.jpg);
+	background-position:center;
+	background-size:100%;
+	background-attachment:fixed;
+}
+
+h2{
+	color:#3F2B70;
+	font-size:20px;
+	margin:0 0 5px 0; /*top right bottom left*/
+}
+
+h3{
+	color:#3F2B70;
+	font-size:18px;
+	margin-top:0;	
+}
+
+h4{
+	color:#3F2B70;
+	font-size:16px;
+	margin-bottom:5px;
+}
+
+h5{
+	color:#666;
+	margin-top:0;
+}
+
+p{
+	margin-top:0;	
+	font-size:14px; /*tamanho padrao 16px*/
+	color:#666;
+	line-height:120%; /*padrao*/
+}
+
+.imgleft{
+	float:left;
+	margin-right:10px;
+}
+
+#container{
+	width:980px;
+	height:auto;
+	margin:auto;
+}	
+
+#topo{
+	width:980px;
+	height:37px;
+	background-image:url(img/topo.png);
+	border-bottom:3px solid #BBA6E7;	
+	/*float:left;*/
+	position:absolute;
+	z-index:10; /*depende da propriedade position*/
+}
+
+#logo{
+	width:144px;
+	height:182px;
+	float:left;
+	
+}
+
+#menu{
+	width:auto;
+	height:auto;
+	float:right;
+}
+
+#menu a:hover{
+	background-color:#BBA6E7;
+}	
+
+
+#conteudogeral{
+	width:980px;
+	min-height:100px;
+	float:left;
+}
+
+#coluna{
+	width:180px;
+	min-height:100px;
+	float:left;
+	background-color:#EEE;
+	font-size:12px;
+	color:#412B70;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:15px;
+	padding-bottom:15px;
+	margin-top:50px;
+}
+
+
+
+#rodape{
+	width:980px;
+	height:25px;
+	float:left;
+	background-color:#EEE;
+	margin-top:50px;
+	font-size:12px;
+	color:#412B70;
+	text-align:center;
+	padding-top:12px;		
+}
