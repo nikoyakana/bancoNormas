@@ -13,7 +13,7 @@ and open the template in the editor.
     <body>
         <?php
         $cod=$_GET["cod"];
-        include_once './conexao.php';
+        include_once '../conexao.php';
         $sql="delete from livros where cod= :cod";
         
         $sth = $con->prepare($sql);

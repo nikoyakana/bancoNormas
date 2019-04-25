@@ -2,15 +2,15 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Cadastrar Livro</title>
+        <title>Cadastrar</title>
          <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     </head>
     <body>
         <div class="container">
-            <h1>Repositório de Normas</h1>
+            <h1>Reposit&oacute;rio de Normas e Pol&iacute;ticas</h1>
             <div class="well span10">          
             <ul class="nav nav-list">
-                  <li class="active"><a href="#"><i class="icon-pencil icon-white"></i> Cadastro de Livro</a></li>
+                  <li class="active"><a href="#"><i class="icon-pencil icon-white"></i> Cadastro de Normas e Pol&iacute;ticas</a></li>
                    <li><a href="/"><i class="icon-home"></i> Voltar</a></li>
             </ul>
             <br>
@@ -21,7 +21,7 @@
                     <label><input type="radio" name="tipo" value="PL">PL
                 </label>
                 <label>
-                    <p class="text-info"><strong>Número:</strong></p>
+                    <p class="text-info"><strong>Numero:</strong></p>
                     <input type="text" name="numero" required>
                 </label>
                 <label>

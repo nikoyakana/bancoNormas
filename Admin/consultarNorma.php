@@ -14,17 +14,17 @@
         // put your code here
         ?>
         <div class="container">
-            <h1>Biblioteca da Cris</h1>
+            <h1>Reposit&oacute;rio de Normas e Pol&iacute;ticas</h1>
             <div class="well span10">          
             <ul class="nav nav-list">
-                  <li class="active"><a href="#"><i class="icon-user icon-white"></i> COnsultar Usuário</a></li>
+                  <li class="active"><a href="#"><i class="icon-user icon-white"></i> Consultar Norma ou Pol&iacute;tica</a></li>
                   <li><a href="/"><i class="icon-home"></i> Voltar</a></li>
             </ul>
             <br>
             <form class="form-inline">
                 <br>
                 <label>
-                   <p class="text-info"><i>Busque pelo Nome:</i></p>
+                   <p class="text-info"><i>Busque por n&uacute;mero ou assunto:</i></p>
                    <input type="text" name="q">
                                   
                 </label>
@@ -32,52 +32,46 @@
             </form>
                 
             <?php
-            //isset -> se existir
-            //$_GET é o resgate padrao do get da mesma forma que ocorre com o POST
-                    if(isset($_GET["q"])){
+                        if(isset($_GET["q"])){
                         $q=$_GET["q"];//pega o que foi digitado no form
                         
-        // consluta ao banco de dados 
-// passo 01: montar a conexao com o banco
                         include_once '../conexao.php';
         
-// passo 02: montar a instrucao sql
-        //$sql= "select*from clientes order by nome";
-          $sql="select * from usuario where nome like :nome order by nome";    
-          
-//passo 03:executar o codigo sql no banco
+//executar o codigo sql no banco
 
           $sth = $con->prepare('
                         SELECT *
                           FROM arquivo
                          WHERE (descricao LIKE :descricao OR numero = :numero)');
-          $total = $sth->execute([
+          $ok = $sth->execute([
               ':descricao' => '%'.$_GET['q'].'%',
               ':numero' => ltrim($_GET['q'], '0')
           ]);
-//passo 04: verificar se o número de linhas encontradas é maior que zero
-        if ($total){
-            // echo "Achou";
+        if ($ok){
                     ?>
                 
           <table class="table table-condensed" style="text-align: center">
                         <tr>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>Login</th>
+                    <th>Tipo</th>
+                    <th>N&uacute;mero</th>
+                    <th>Classe</th>
+                    <th>Descri&ccedil;&atilde;o</th>
+                    <th>Atualiza&ccedil;&atilde;o</th>
                     <th>Editar</th>
                     <th>Excluir</th>
                     </tr>
-       <!--passo 05: FAZER UMA ESTRUTURA QUE LEIA O COMANDO IMPRIMIR OS DADOS ATÉ QUE O NUMERO DE LINHAS ENCONTRADO ACABE-->
-            
+                   
             <?php
+            $total=0;
                         while ($row =$sth->fetch()) {
+                            $total++;
                             ?>
             
             <tr>
-            <td><?php echo $row["nome"]?></td>
-            <td><?php echo $row["email"] ?></td>
-            <td><?php echo $row["login"]?></td>
+            <td><?php echo $row["tipo"]?></td>
+            <td><?php echo $row["numero"] ?></td>
+            <td><?php echo $row["classe_cod"]?></td>
+            <td><?php echo $row["descricao"]?></td>
             <td><a href="editarNorma.php?cod=<?php echo $row["cod"]?>"><i class="icon-pencil table-bordered"></i></a></td>
             <td><a href="#" onclick="excluirNorma(<?php echo $row["id"]; ?>)"><i class="icon-trash table-bordered"></i></a></td>
            </tr>
@@ -85,18 +79,17 @@
            <?php
                         }// fechamento do while. 
                         echo "</table>";
-                        echo "Total de Usuários cadastrados:".$total;
+                        echo "Total de Normas e Pol&iacute;ticas cadastradas:".$total;
                     }// segundo if
                     else {
-                                echo "Nenhum Usuário encontrado. ";
+                                echo "Nenhum dado encontrado. ";
                 
                           }
-                                //fecha o banco de dados
+                                
                 }// fechamento primeiro if  
                 
                 ?>        
             
-        <br>
         </div>
  </div>
     </body>

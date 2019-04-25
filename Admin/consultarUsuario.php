@@ -14,10 +14,10 @@
         // put your code here
         ?>
         <div class="container">
-            <h1>Biblioteca da Cris</h1>
+            <h1>Reposit&oacute;rio de Normas e Pol&iacute;ticas</h1>
             <div class="well span10">          
             <ul class="nav nav-list">
-                  <li class="active"><a href="#"><i class="icon-user icon-white"></i> COnsultar Usuário</a></li>
+                  <li class="active"><a href="#"><i class="icon-user icon-white"></i> Consultar Usu&aacute;rio</a></li>
                   <li><a href="/"><i class="icon-home"></i> Voltar</a></li>
             </ul>
             <br>

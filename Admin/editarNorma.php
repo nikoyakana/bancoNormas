@@ -30,7 +30,7 @@ and open the template in the editor.
         <div class="container">
             <div class="well span10">
                 <ul class="nav nav-list">
-                <li class="active"><a href="#"><i class="icon-user icon-white"></i> Editar Usuário</a></li>
+                <li class="active"><a href="#"><i class="icon-user icon-white"></i> Editar Norma ou Pol&iacute;tica</a></li>
                    <li><a href="/"><i class="icon-home"></i> Voltar</a></li></ul>
                      
                    <form action="atualizarNorma.php" method="post">
@@ -41,7 +41,7 @@ and open the template in the editor.
                     <label><input type="radio" name="tipo" value="PL"<?php if($row['tipo'] == 'PL') echo ' checked';?>>PL
                 </label>
                 <label>
-                    <p class="text-info"><strong>Número:</strong></p>
+                    <p class="text-info"><strong>N&uacute;mero:</strong></p>
                     <input type="text" name="numero" value="<?php echo $row['numero'];?>" required>
                 </label>
                 <label>
@@ -49,7 +49,7 @@ and open the template in the editor.
                     <input type="text" name="classe_cod" value="<?php echo $row['classe_cod'];?>" required>
                 </label>
                 <label>
-                    <p class="text-info"><strong>Descrição:</strong></p>
+                    <p class="text-info"><strong>Descri&ccedil;&atilde;o:</strong></p>
                     <textarea name="descricao"><?php echo $row['descricao'];?></textarea>
                 </label>
                     <p class="text-info"><strong>Arquivo:</strong></p>
