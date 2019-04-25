@@ -3,10 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.css"/>
     </head>
     <body>
-    <!-- GRAVAÇÃO NO BANCO -->
+    <!-- GRAVAï¿½ï¿½O NO BANCO -->
         <?php
         //RESGATA OS DADOS DO FORMULARIO
         $nome= $_POST["nome"];
@@ -21,18 +21,17 @@
         $email=strtolower($email);
         $login= strtolower($login);    
         
-        //CONEXÃO DO BANCO DE DADOS (host, usuario, senha, base)
+        //CONEXï¿½O DO BANCO DE DADOS (host, usuario, senha, base)
         include_once '../conexao.php';
         
-        //INSTRUÇÃO DE GRAVAÇÃO
-        $sql= "insert into usuarios values (null, :nome, :email, :login, :senha,:perfil)";
+        //INSTRUï¿½ï¿½O DE GRAVAï¿½ï¿½O
+        $sql= "insert into usuario (nome, email, login, senha) values (:nome, :email, :login, :senha)";
         $sth = $con->prepare($sql);
         $sth->execute([
             ':nome' => $nome,
             ':email' => $email,
             ':login' => $login,
             ':senha' => $senha,
-            ':perfil' => $perfil,
             ]);
        
         //MENSAGEM DE ALERTA
@@ -47,7 +46,7 @@
         }else{
             $msg= "Erro ao gravar.";}
         echo "<script> alert('".$msg."');
-            location.href='index.php'
+            location.href='/index.php'
             </script>";
         ?>                      
     </body>

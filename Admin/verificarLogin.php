@@ -5,7 +5,7 @@ $senha= md5 ($_POST["senha"]);
 
 include_once '../conexao.php';
 
-$sql="select*from usuarios where login=:login and senha =:senha";
+$sql="SELECT * FROM usuario WHERE login = :login AND senha = :senha;";
 
 
 $sth = $con->prepare($sql);
@@ -20,7 +20,7 @@ if($row){
     $_SESSION["id"]=$row["id"];
     $_SESSION["nome"]=$row["nome"];
     $_SESSION["login"]=$row["login"];
-    header("location:painel.php");
+    header("location:/index.php");
 }else{
     $msg= "Login/Senha invalido(s)!";
     header("location:../index.php?erro=".$msg);

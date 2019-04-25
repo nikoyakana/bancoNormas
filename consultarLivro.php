@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
    
         <!-- criando uma funÃ§Ã£o .  -->
     <script>
@@ -20,7 +20,7 @@
             <div class="well span10">
                 <ul class="nav nav-list">
                 <li class="active"><a href="#"><i class="icon-pencil icon-white"></i> Consulta de Livro</a></li>
-                <li><a href="painel.php"><i class="icon-home"></i> Voltar</a></li>       
+                <li><a href="/"><i class="icon-home"></i> Voltar</a></li>       
             </ul>
                 
             <form action="consultarLivro.php" method="get" class="form-inline">

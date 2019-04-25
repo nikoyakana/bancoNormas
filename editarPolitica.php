@@ -8,7 +8,7 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.css"/>
     </head>
     <body>
         
@@ -31,7 +31,7 @@ and open the template in the editor.
             <div class="well span10">
                 <ul class="nav nav-list">
                 <li class="active"><a href="#"><i class="icon-user icon-white"></i> Editar Usuário</a></li>
-                   <li><a href="painel.php"><i class="icon-home"></i> Voltar</a></li></ul>
+                   <li><a href="/"><i class="icon-home"></i> Voltar</a></li></ul>
                      
                    <form action="atualizarUsuario.php" method="post">
                    <p class="text-info"><strong> ID:</strong></p>

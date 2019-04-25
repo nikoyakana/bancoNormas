@@ -6,11 +6,11 @@
     <head>
         <meta charset="UTF-8">
         <title>Painel de Controle</title>
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     </head>
     <body>
 		<div class="container">
-			<h1>Repositório de Normas e Políticas</h1>
+			<h1>RepositpÃ³rio de Normas e PolÃ­ticas</h1>
 			<p>Seja bem vindo(a) ao</p>
             <h3>Painel de Controle</h3>
             <div class="well span10">  

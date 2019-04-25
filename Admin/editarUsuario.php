@@ -8,17 +8,17 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.css"/>
     </head>
     <body>
         
                 <!-- executando o seletc do banco -->
                         
                     <?php 
-                      if(isset($_GET["id"])){
-                      $cod = $_GET["id"];
-                      include_once './conexao.php';
-                      $sql = "select * from usuarios where id =:cod";
+                      if(isset($_GET["cod"])){
+                      $cod = $_GET["cod"];
+                      include_once '../conexao.php';
+                      $sql = "select * from usuario where id =:cod";
                       $sth = $con->prepare($sql);
                       $sth->execute([
                           ':cod' => $cod,
@@ -31,11 +31,10 @@ and open the template in the editor.
             <div class="well span10">
                 <ul class="nav nav-list">
                 <li class="active"><a href="#"><i class="icon-user icon-white"></i> Editar Usuário</a></li>
-                   <li><a href="painel.php"><i class="icon-home"></i> Voltar</a></li></ul>
+                   <li><a href="/"><i class="icon-home"></i> Voltar</a></li></ul>
                      
                    <form action="atualizarUsuario.php" method="post">
-                   <p class="text-info"><strong> ID:</strong></p>
-                   <input type="number" name="id" readonly value="<?php echo $row["id"]?>"><br>
+                   <input type="hidden" name="id" value="<?php echo $row["id"]?>"><br>
                     <label>
                        <p class="text-info"><strong> Nome:</strong></p>
                         <input type="text" name="nome" value="<?php echo $row["nome"]?>"><br>                      
@@ -50,14 +49,8 @@ and open the template in the editor.
                     </label>
                     <label>
                         <p class="text-info"><strong>Senha:</strong></p>
-                        <input type="number" name="senha" value="<?php echo $row["senha"]?>"><br>                      
+                        <input type="password" name="senha" value=""><br>                      
                     </label>
-                    <label>
-                        <p class="text-info"><strong>Perfil:</strong></p>
-                        <input type="text" name="perfil" readonly value="<?php echo $row["perfil"]?>"><br>                      
-                    </label>
-                                          
-                        
                   <input type="submit" value="Atualizar" class="btn btn-primary">
                     
                 </form>

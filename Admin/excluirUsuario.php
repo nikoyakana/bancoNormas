@@ -8,13 +8,13 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"/>
     </head>
     <body>
         <?php
         $id=$_GET["id"];
         include_once './conexao.php';
-        $sql="delete from usuarios where id=:id";
+        $sql="delete from usuario where id=:id";
         $sth = $con->prepare($sql);
         $sth->execute([
             ':id' => $id,
@@ -30,7 +30,7 @@ and open the template in the editor.
             $msg= "Erro ao Excluir.";
         }
         echo "<script> alert('".$msg."');
-            location.href='index.php'
+            location.href='/index.php'
             </script>";
         ?>
     </body>

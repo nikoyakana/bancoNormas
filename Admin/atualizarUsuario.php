@@ -12,25 +12,34 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        $idusuario=$_POST["idusuario"];
+        $id=$_POST["id"];
         $nome= $_POST["nome"];
         $email = $_POST["email"];
         $login =  $_POST["login"];
         $senha = $_POST["senha"];
-        $perfil =$_POST["perfil"];
-                
-        include_once './conexao.php';
-        $sql = "update usuarios set nome = :nome,
-         email= :email, login= :login, senha = :senha, perfil= :perfil where id= :id";
-        $sth = $con->prepare($sql);
-        $sth->execute([
-            ':id'=>$id,
-            ':nome'=>$nome,
-            ':email'=>$email,
-            ':login'=>$login,
-            ':senha'=>$senha,
-            ':perfil'=>$perfil,
-        ]);
+        include_once '../conexao.php';
+        if($senha) {
+            $sql = "update usuario set nome = :nome,
+             email= :email, login= :login, senha = :senha where id= :id";
+            $sth = $con->prepare($sql);
+            $sth->execute([
+                ':id'=>$id,
+                ':nome'=>$nome,
+                ':email'=>$email,
+                ':login'=>$login,
+                ':senha'=>md5($senha),
+            ]);
+        } else {
+            $sql = "update usuario set nome = :nome,
+             email= :email, login= :login where id= :id";
+            $sth = $con->prepare($sql);
+            $sth->execute([
+                ':id'=>$id,
+                ':nome'=>$nome,
+                ':email'=>$email,
+                ':login'=>$login,
+            ]);
+        }
         if($sth->rowCount()){
                     ?>
         <div class="alert alert-success">

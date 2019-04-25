@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Área Administrativa</title>
-		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<title>Ãrea Administrativa</title>
+		<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
 
 		<style>
         .erro{

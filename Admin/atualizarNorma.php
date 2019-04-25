@@ -12,28 +12,24 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        $cod=$_POST["cod"];
-        $titulo= $_POST["titulo"];
-        $autor = $_POST["autor"];
-        $ano =  $_POST["ano"];
-        $editora = $_POST["editora"];
-        $avaliacao =$_POST["avaliacao"];
-        $corcapa =$_POST["corcapa"];
-        $localizacao =$_POST["localizacao"];
-        
-        include_once './conexao.php';
-        $sql = "update livros set titulo = :titulo,
-         autor = :autor,ano = :ano, editora =:editora, avaliacao=:avaliacao,corcapa=:corcapa,localizacao=:localizacao where cod= :cod";
+        if(isset($_FILES['arquivo']['tmp_name'])) {
+            $filename = 'statics/'.strtoupper($_POST['tipo']).'-'.
+                str_pad(ltrim($_POST['numero'], '0'), 3, '0', STR_PAD_LEFT).'-'.
+                strtoupper($_POST['classe_cod']).'.pdf';
+            move_uploaded_file($_FILES['arquivo']['tmp_name'], $filename);
+        }
+        include_once '../conexao.php';
+        $sql = "UPDATE arquivo SET tipo = :tipo,
+        numero = :numero, classe_cod = :classe_cod,
+        descricao = :descricao, atualizacao = :atualizacao WHERE cod = :cod";
         $sth = $con->prepare($sql);
         $sth->execute([
-            ':cod'=>$cod,
-            ':titulo'=>$titulo,
-            ':autor'=>$autor,
-            ':ano'=>$ano,
-            ':editora'=>$editora,
-            ':avaliacao'=>$avaliacao,
-            ':corcapa'=>$corcapa,
-            ':localizacao'=>$localizacao,
+            ':tipo'=>$_POST['tipo'],
+            ':numero'=>$_POST['numero'],
+            ':classe_cod'=>$_POST['classe_cod'],
+            ':descricao'=>$_POST['descricao'],
+            ':atualizacao'=>time(),
+            ':cod'=>$_POST['cod'],
         ]);
         
         if($sth->rowCount()){

@@ -7,7 +7,7 @@
     <head>
         <meta charset="UTF-8">
         <title>o</title>
-         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+         <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     </head>
     <body>
         <div class="container">
@@ -15,7 +15,7 @@
             <div class="well span10">          
             <ul class="nav nav-list">
                   <li class="active"><a href="#"><i class="icon-user icon-white"></i> Cadastro de Usuário</a></li>
-                   <li><a href="painel.php"><i class="icon-home"></i> Voltar</a></li>
+                   <li><a href="/"><i class="icon-home"></i> Voltar</a></li>
             </ul>
             <br>
             <form action="gravarusuario.php" method="post">

@@ -7,7 +7,7 @@
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.css"/>
     </head>
     <body>
         <?php
@@ -18,7 +18,7 @@
             <div class="well span10">          
             <ul class="nav nav-list">
                   <li class="active"><a href="#"><i class="icon-user icon-white"></i> COnsultar Usuário</a></li>
-                  <li><a href="painel.php"><i class="icon-home"></i> Voltar</a></li>
+                  <li><a href="/"><i class="icon-home"></i> Voltar</a></li>
             </ul>
             <br>
             <form action="consultarUsuario.php" method="get" class="form-inline">
@@ -39,11 +39,11 @@
                         
         // consluta ao banco de dados 
 // passo 01: montar a conexao com o banco
-                        include_once './conexao.php';
+                        include_once '../conexao.php';
         
 // passo 02: montar a instrucao sql
         //$sql= "select*from clientes order by nome";
-          $sql="select*from usuarios where nome like :nome order by nome";    
+          $sql="select * from usuario where nome like :nome order by nome";    
           
 //passo 03:executar o codigo sql no banco
 
@@ -59,12 +59,9 @@
                 
           <table class="table table-condensed" style="text-align: center">
                         <tr>
-                    <th>ID</th>
                     <th>Nome</th>
                     <th>Email</th>
                     <th>Login</th>
-                    <th>Senha</th>
-                    <th>Perfil</th>
                     <th>Editar</th>
                     <th>Excluir</th>
                     </tr>
@@ -75,12 +72,9 @@
                             ?>
             
             <tr>
-            <td><?php echo $row["id"]?></td>
             <td><?php echo $row["nome"]?></td>
             <td><?php echo $row["email"] ?></td>
             <td><?php echo $row["login"]?></td>
-            <td><?php echo $row["senha"]?></td>
-            <td><?php echo $row["perfil"]?></td>
             <td><a href="editarUsuario.php?cod=<?php echo $row["id"]?>"><i class="icon-pencil table-bordered"></i></a></td>
             <td><a href="#" onclick="excluirUsuario(<?php echo $row["id"]; ?>)"><i class="icon-trash table-bordered"></i></a></td>
            </tr>

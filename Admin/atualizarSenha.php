@@ -23,6 +23,6 @@
             echo "Senha atualizada com sucesso";
         ?>
         <br>
-        <a href="painel.php">Voltar</a>
+        <a href="/">Voltar</a>
     </body>
 </html>
